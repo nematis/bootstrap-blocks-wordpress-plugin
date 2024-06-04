@@ -1,0 +1,71 @@
+{
+  "name": "wp-bootstrap-blocks",
+  "version": "4.2.1",
+  "private": true,
+  "description": "Bootstrap Gutenberg Blocks for WordPress",
+  "author": "Liip AG",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "editor",
+    "Gutenberg",
+    "Bootstrap",
+    "Blocks"
+  ],
+  "homepage": "https://github.com/liip/bootstrap-blocks-wordpress-plugin",
+  "repository": "git+https://github.com/liip/bootstrap-blocks-wordpress-plugin.git",
+  "bugs": {
+    "url": "https://github.com/liip/bootstrap-blocks-wordpress-plugin/issues"
+  },
+  "dependencies": {
+    "@wordpress/block-editor": "^9.8.0",
+    "@wordpress/blocks": "^11.15.0",
+    "@wordpress/components": "^20.0.0",
+    "@wordpress/compose": "^5.14.0",
+    "@wordpress/data": "^7.0.0",
+    "@wordpress/editor": "^12.15.0",
+    "@wordpress/element": "^4.14.0",
+    "@wordpress/hooks": "^3.16.0",
+    "@wordpress/i18n": "^4.16.0",
+    "bootstrap": "^5.2.0",
+    "sass": "^1.54.5"
+  },
+  "devDependencies": {
+    "@cypress/snapshot": "^2.1.7",
+    "@wordpress/base-styles": "^4.7.0",
+    "@wordpress/env": "^5.2.0",
+    "@wordpress/scripts": "^24.0.0",
+    "cypress": "^10.6.0",
+    "cypress-wp-test-utils": "^0.8.0",
+    "cypress-xpath": "^2.0.1",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "lodash": "^4.17.21",
+    "prettier": "npm:wp-prettier@2.6.2"
+  },
+  "scripts": {
+    "start": "wp-scripts start src/index.js src/settings/settings.js",
+    "dev": "npm run start",
+    "prebuild": "npm run check-engines",
+    "build": "wp-scripts build src/index.js src/settings/settings.js",
+    "build-theme-assets": "sass test-themes/bootstrap/bootstrap-with-cssgrid.scss test-themes/bootstrap/bootstrap-with-cssgrid.css",
+    "update-translations": "scripts/translations/extract-messages.sh && scripts/translations/update-translation-files.sh && scripts/translations/compile-translation-files.sh",
+    "wp-env": "wp-env",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses",
+    "lint": "npm run lint:pkg-json && npm run lint:css && npm run lint:js && npm run lint:md-docs",
+    "lint:css": "wp-scripts lint-style 'src/**/*.scss'",
+    "lint:js": "wp-scripts lint-js",
+    "lint:js-fix": "wp-scripts lint-js --fix",
+    "lint:md-docs": "wp-scripts lint-md-docs",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "lint:php": "npm run wp-env run composer run-script lint",
+    "test:e2e": "cypress run",
+    "test:e2e-interactive": "npm run cy:open",
+    "test:unit:js": "wp-scripts test-unit-js",
+    "test:unit:php": "npm run wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/wp-bootstrap-blocks/phpunit.xml.dist --verbose'",
+    "test:unit:php:ci": "npm run wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/bootstrap-blocks-wordpress-plugin/phpunit.xml.dist --verbose'",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
+  }
+}

@@ -1,0 +1,10 @@
+{
+	"core": "WordPress/WordPress#6.0.1",
+	"plugins": [ "." ],
+	"themes": [
+		"./test-themes/bootstrap"
+	],
+	"mappings": {
+		"wp-content/plugins/wp-bootstrap-blocks-test-plugins": "./e2e-test-plugins"
+	}
+}

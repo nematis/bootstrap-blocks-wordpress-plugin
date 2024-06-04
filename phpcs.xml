@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ruleset name="wp-bootstrap-blocks">
+	<description>Coding standards for wp-bootstrap-blocks</description>
+
+	<arg value="ps"/>
+	<arg name="extensions" value="php"/>
+
+	<file>./wp-bootstrap-blocks.php</file>
+	<file>./src</file>
+	<file>./e2e-test-plugins</file>
+	<file>./phpunit</file>
+
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>./src/*\.(inc|css|js)$</exclude-pattern>
+	<exclude-pattern>./e2e-test-plugins/*\.(inc|css|js)$</exclude-pattern>
+	<exclude-pattern>./cypress/*</exclude-pattern>
+
+	<rule ref="WordPress">
+		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar" />
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
+		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
+	</rule>
+</ruleset>
