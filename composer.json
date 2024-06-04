@@ -32,7 +32,7 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "4.x-accordion"
+			"dev-master": "4.x-dev"
 		}
 	},
 	"minimum-stability": "dev",
